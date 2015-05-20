@@ -1,6 +1,7 @@
 ﻿module Functions
 
 open Types
+open Data
 open System
 
 let tryPromoteToVip (customer, spendings) =
@@ -8,7 +9,6 @@ let tryPromoteToVip (customer, spendings) =
     else customer
 
 let getSpendings customer =
-    // let weights = [0.8; 0.9; 1.0; 0.7; 0.9; 1.0; 0.8; 1.0; 1.0; 1.0; 0.8; 0.7]
     if customer.Id % 2 = 0 then (customer, 120.0)
     else (customer, 80.0)
 
@@ -33,7 +33,7 @@ let getAlert customer =
         Some (sprintf "Alert for customer: %i" customer.Id)
     | _ -> None
 
-let getSpendingsByMonth customer = customer.Id |> Data.getSpendings
+let getSpendingsByMonth customer = customer.Id |> loadSpendings
 
 let weightedMean values =
     let rec recursiveWeightedMean items accumulator = 
