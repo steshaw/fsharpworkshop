@@ -9,3 +9,17 @@ let tryPromoteToVip (customer, spendings) =
 let getSpendings customer =
     if customer.Id % 2 = 0 then (customer, 120.0)
     else (customer, 80.0)
+
+let increaseCredit predicate customer =
+    if predicate customer then { customer with Credit = customer.Credit + 100.0 }
+    else { customer with Credit = customer.Credit + 50.0 }
+
+let isVip customer = customer.IsVip
+
+let increaseCreditUsingVip = increaseCredit isVip
+
+let upgradeCustomer customer =
+    customer
+        |> getSpendings
+        |> tryPromoteToVip
+        |> increaseCreditUsingVip

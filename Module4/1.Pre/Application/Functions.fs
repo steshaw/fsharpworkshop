@@ -33,3 +33,19 @@ let getAlert customer =
         Some (sprintf "Alert for customer: %i" customer.Id)
     | _ -> None
 
+let getSpendingsByMonth customer = customer.Id |> Data.getSpendings
+
+let weightedMean values =
+    let rec recursiveWeightedMean items accumulator = 
+        match items with
+        | []           -> accumulator / (float (List.length values))
+        | (w, v) :: vs -> recursiveWeightedMean vs (accumulator + w * v)
+    recursiveWeightedMean values 0.0
+
+let getCustomers customer =
+    let weights = [0.8; 0.9; 1.0; 0.7; 0.9; 1.0; 0.8; 1.0; 1.0; 1.0; 0.8; 0.7]
+    let spending = customer
+                   |> getSpendingsByMonth
+                   |> List.zip weights
+                   |> weightedMean
+    (customer, spending)

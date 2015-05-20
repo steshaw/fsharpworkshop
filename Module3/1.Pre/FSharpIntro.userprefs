@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="Application/Application.fsproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Tests/Tests.fs">
+    <Files>
+      <File FileName="Application/Functions.fs" Line="30" Column="29" />
+      <File FileName="Application/Types.fs" Line="23" Column="1" />
+      <File FileName="Application/Data.fs" Line="5" Column="1" />
+      <File FileName="Tests/Tests.fs" Line="50" Column="28" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
