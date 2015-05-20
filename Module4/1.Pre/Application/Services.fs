@@ -1,10 +1,11 @@
 ﻿namespace Services
 
 open Data
+open Functions
 
 type CustomerService() = 
-    member this.GetCustomers () = getCustomers ()
+    member this.GetCustomers () = loadCustomers ()
     member this.UpgradeCustomer id =
-        Data.getCustomers ()
+        loadCustomers ()
         |> Seq.find (fun c -> c.Id = id)
-        |> Functions.upgradeCustomer
+        |> upgradeCustomer

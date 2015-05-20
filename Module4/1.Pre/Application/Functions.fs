@@ -49,3 +49,4 @@ let getCustomers customer =
                    |> List.zip weights
                    |> weightedMean
     (customer, spending)
+

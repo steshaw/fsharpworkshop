@@ -13,7 +13,7 @@ let loadSpendings id =
 
 type Csv = CsvProvider<"Data.csv">
 
-let getCustomers () =
+let loadCustomers () =
     let file = Csv.Load "Data.csv"
     file.Rows
  |> Seq.map (fun c -> 
